@@ -1,8 +1,14 @@
 const router = require("express").Router();
+const checkDuplicate = require("../middleware/verifySignUp");
 const { addOrder } = require("./addOrders");
-const { addUser } = require("./addUser");
+const logOut = require("./Auth/logOut");
+const signIn = require("./Auth/signIn");
+const signUp = require("./Auth/signUp");
 
-router.post("/add/user", addUser);
+router.post("/api/auth/signUp", checkDuplicate, signUp);
+router.post("/api/auth/signIn", signIn);
+router.get("/api/auth/logOut", logOut);
+
 router.post("/add/orders", addOrder);
 
 router.get("/hi", (req, res) => {

@@ -3,6 +3,7 @@ const app = express();
 const cors = require("cors");
 const db = require("./app/models");
 const routes = require("./app/controller");
+const cookieParser = require("cookie-parser");
 
 const corsOptions = {
   origin: "http://localhost:8081",
@@ -20,6 +21,8 @@ db.sequelize
 
 //  parse request of content type - application/json
 app.use(express.json());
+
+app.use(cookieParser());
 
 // parse requests of content-type - application/x-www-form-urlencoded
 app.use(express.urlencoded({ extended: true }));

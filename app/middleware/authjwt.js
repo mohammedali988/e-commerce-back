@@ -4,7 +4,7 @@ const jwt = require("jsonwebtoken");
 const config = require("../config/auth.config");
 
 verifyToken = (req, res, next) => {
-  let token = req.session.token;
+  let token = req.cookie.jwt;
 
   if (!token) {
     return res.status(403).send({
@@ -18,7 +18,7 @@ verifyToken = (req, res, next) => {
         message: "Unauthorized!",
       });
     }
-    req.userId = decoded.id;
+    console.log("user id ", decoded);
     next();
   });
 };
