@@ -4,7 +4,7 @@ module.exports = (sequelize, Sequelize) => {
       type: Sequelize.STRING,
     },
     price: {
-      type: Sequelize.INTEGER,
+      type: Sequelize.STRING,
     },
     brand: {
       type: Sequelize.STRING,
@@ -12,9 +12,9 @@ module.exports = (sequelize, Sequelize) => {
     description: {
       type: Sequelize.STRING,
     },
-    img: {
-      type: Sequelize.BLOB("long"),
-    },
+    // img: {
+    //   type: Sequelize.BLOB("long"),
+    // },
   });
 
   return Products;
